@@ -1,14 +1,20 @@
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;
 }
 
 body {
   margin: 0;
+  padding-bottom: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+  background-color: hsl(40, 100%, 96%);
 }
 
 button {
-  background-color: hsl(2, 100%, 32%);
+  background-color: hsl(356, 100%, 37%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -18,7 +24,42 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: hsl(2, 90%, 20%);
+  background-color: hsl(0, 0%, 20%);
+}
+
+.books-container {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin: 0 15vw;
+}
+
+.card {
+  border: 4px solid black;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(40, 100%, 100%);
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.author, .pages, .read {
+  color: hsl(0, 0%, 25%);
+}
+
+.card-buttons {
+  margin-top: auto;
+}
+
+.card button {
+  display: block;
+  margin-top: 4px;
+  width: fit-content;
 }
 
 .modal {
@@ -29,7 +70,7 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: hsla(2, 100%, 0%, 40%);
+  background-color: hsla(0, 100%, 0%, 40%);
 }
 
 .modal-content {
@@ -37,9 +78,8 @@ button:hover {
   height: auto;
   margin: 10% auto;
   padding: 0 24px 24px 24px;
-  border-radius: 12px;
-  background-color: hsl(2, 100%, 45%);
-  color: white;
+  border: 4px solid black;
+  background-color: hsl(40, 100%, 96%);
 }
 
 .modal-content header {
@@ -55,13 +95,46 @@ button:hover {
 
 .close:hover {
   cursor: pointer;
-  color: hsl(2, 0%, 70%)
+  color: hsl(0, 0%, 70%)
 }
 
 form {
   display: grid;
   grid-template-columns: repeat(2, 1fr 3fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 16px;
   justify-items: start;
+}
+
+form input {
+  padding: 4px 8px;
+}
+
+.title-err, .author-err {
+  display: none;
+  color: red;
+  font-size: .9rem;
+}
+
+@media screen and (max-width: 1320px) {
+  .books-container {
+    grid-template-columns: 1fr;
+    margin: 0 12px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  
+  form button, form input {
+    width: calc(100% - 16px);
+  }
+  form div {
+    width: 100%;
+  }
+
+  form input[type="checkbox"] {
+    width: auto;
+  }
 }
