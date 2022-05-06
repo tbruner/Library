@@ -84,6 +84,8 @@ for(let i=0; i < add_new_book.length; ++i) {
 window.onclick = (event) => {
   if(event.target == modal) {
     modal.style.display = "none";
+    titleErr.style.display = 'none';
+    authorErr.style.display = 'none';
   }
 }
 
